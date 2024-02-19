@@ -36,17 +36,17 @@ services:
   
 volumes:
   config:
-     driver_opts:
-           type: none
-           device: ${VOL_DUPLICATI}
-           o: bind
+    driver_opts:
+      type: none
+      device: ${VOL_DUPLICATI}
+      o: bind
   backups:
-     driver_opts:
-           type: none
-           device: ${VOL_BACKUP}
-           o: bind
+    driver_opts:
+      type: none
+      device: ${VOL_BACKUP}
+      o: bind
   source:
-     driver_opts:
-           type: none
-           device: ${VOL_SOURCE}
-           o: bind
+    driver_opts:
+      type: none
+      device: ${VOL_SOURCE}
+      o: bind
