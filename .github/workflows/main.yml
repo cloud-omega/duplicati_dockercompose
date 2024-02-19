@@ -28,9 +28,9 @@ jobs:
         if: always()
         run: docker compose down --remove-orphans -v
         
-      - name: Update Docker Compose
+      - name: Prepare volumes
         if: always()
-        run: mkdir -p /opt/files/duplicati /opt/backup
+        run: mkdir -p ${{ secrets.VOL_DUPLICATI }} ${{ secrets.VOL_BACKUP }} ${{ secrets.VOL_SOURCE }}
         
       - name: Run Docker Compose Up
         run: docker compose up -d --wait
