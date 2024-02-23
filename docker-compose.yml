@@ -30,7 +30,7 @@ services:
       - traefik.http.services.${SITE_PATH}.loadbalancer.server.port=8002
       - traefik.http.routers.${SITE_PATH}.tls.certresolver=letsencrypt
       - traefik.frontend.entryPoints=http,https
-      - traefik.http.routers.${SITE_PATH}.rule=Host(`${DOMAIN_NAME}`) && Path(`/${SITE_PATH}`)
+      - traefik.http.routers.${SITE_PATH}.rule=Host(`${DOMAIN_NAME}`) && Path(`"/${SITE_PATH}"`)
     networks: 
       - proxy_default
   
