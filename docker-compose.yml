@@ -27,10 +27,12 @@ services:
     labels:
       - traefik.enable=true
       - traefik.docker.network=proxy_default
-      - traefik.http.services.${SITE_PATH}.loadbalancer.server.port=8002
+      - traefik.http.services.${SITE_PATH}.loadbalancer.server.port=8200
       - traefik.http.routers.${SITE_PATH}.tls.certresolver=letsencrypt
       - traefik.frontend.entryPoints=http,https
-      - traefik.http.routers.${SITE_PATH}.rule=Host(`${DOMAIN_NAME}`) #&& PathPrefix("/${SITE_PATH}")  
+      - traefik.http.routers.${SITE_PATH}.rule=Host(`${DOMAIN_NAME}`) && PathPrefix("/${SITE_PATH}")
+      - traefik.http.middlewares.${SITE_PATH}.stripprefix.prefixes="/${SITE_PATH}"
+
 
     networks: 
       - proxy_default
